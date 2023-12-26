@@ -1,0 +1,110 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+#root {
+  text-align: center;
+  height: 100vh;
+  width: 100vw;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+
+/* This is the container that holds the blurred background. 
+It should be positioned relative to allow absolute positioning within it. */
+.container {
+  position: relative;
+  width: 100%; /* Full width of the viewport */
+  height: 100vh; /* Full height of the viewport */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* The blur effect with a solid color overlay */
+.blur-background::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(117, 117, 117, 0.822); /* Adjust the color and opacity to match your form background */
+  filter: blur(10px); /* A reasonable blur value */
+  z-index: -1;
+}
+
+/* The container for the blur effect, centered with a size of half the viewport */
+.blur-background {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 80vw;
+  height: 85vh;
+  transform: translate(-50%, -50%);
+  background-color: transparent; /* Ensure the container itself doesn't add any background color */
+  z-index: 1;
+  overflow: hidden; /* Prevents the blur effect from bleeding outside the element */
+  border-radius: 10px;
+
+}
+
+
+
+
+/* This sets the background image to cover the whole page */
+.background-image {
+  background-image:  url('../mountain.avif'); /* Update with the correct path to your image */
+  position: fixed; /* Use fixed to ensure it covers the whole viewport */
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -2; /* Ensures that this is behind everything else */
+  background-size: cover; /* Ensures the background covers the entire element */
+  background-position: center; /* Centers the background image */
+}
+
+.form-container {
+  position: fixed; /* Fixed position to place it above everything */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* This centers the form */
+  z-index: 10; /* Above the blurred background */
+}
+
