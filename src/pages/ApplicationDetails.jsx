@@ -42,7 +42,7 @@ function ApplicationDetails() {
     }
 
     useEffect(() => {
-        if (errorStatus === 'success') {
+        if (errorStatus === 'updated') {
             setShowToast(true);
             const timer = setTimeout(() => {
                 setShowToast(false)

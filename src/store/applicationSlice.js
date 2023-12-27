@@ -7,7 +7,7 @@ const initialState = {
     newApplication : null,
     allApplications: [],
     application : {},
-    appCode: ""
+    appCode: "",
 }
 
 const applicationSlice = createSlice({
@@ -46,7 +46,7 @@ const applicationSlice = createSlice({
         }),
         builder.addCase(updateApplication.fulfilled, (state, action) => {
             state.application = action.payload
-            state.status = "success"
+            state.status = "updated"
         })
     }
 })
