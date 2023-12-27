@@ -8,9 +8,8 @@ function Header() {
 
     return (
         <div className="shadow-md mb-10 flex justify-end px-5 items-center gap-8">
-        
-                 <Link to="/admin/basvuru-listesi" className="text-zinc-600">Basvuru Listesi</Link>
-                    <button onClick={()=> dispatch(logout()) }><i className="bi bi-arrow-return-right"></i></button>
+            <Link to="/admin/basvuru-listesi" className="text-zinc-600">Basvuru Listesi</Link>
+            <button onClick={()=> dispatch(logout()) }><i className="bi bi-arrow-return-right"></i></button>
             
         </div>
     )

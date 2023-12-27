@@ -17,10 +17,8 @@ function AdminApplicationList() {
     
     useEffect(() => {
         console.log(status);
-        // Any other side effects related to status change
     }, [status]);
 
-    // Conditional rendering based on `status` and `applications`
     if (status === "loading") {
         return <p>Loading...</p>;
     }

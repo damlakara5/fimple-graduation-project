@@ -1,8 +1,50 @@
-# React + Vite
+# Fimple Bootcamp Graduation Project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+ Deployed app link: https://fimple-graduation-project.vercel.app/
+## Table of contents
 
-Currently, two official plugins are available:
+- [Overview](#overview)
+  - [The app](#the-app)
+  - [Screenshot](#screenshot)
+  - [Built with](#built-with)
+- [Author](#author)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Overview
+
+
+### The app
+
+Features:
+
+- Responsive Design: Optimized for a smooth experience across all devices.
+- Users can fill out the application form 
+- Users can access the application code from the success screen.
+- Users can access the application details and the answers given (if any) with the application code.
+- Admin users can log in with a special login page.
+- Admin users can list all submitted applications.
+- Admin users can sort the applications by date.
+- Admin users can change the status of applications and reply on the application detail page.
+- Admin users can logout
+
+### Screenshot
+
+![](./login.png)
+![](./products.png)
+![](./product-detail.png)
+
+### Built with
+
+- React.JS
+- Vite 
+- Redux Toolkit for state management
+- yup for form form validations
+- react-hook-form for form management
+- Material UI for custom components
+- React Router DOM for routing
+- REST API
+
+
+
+## Author
+
+- LinkedIn - [Damla Kara](https://www.linkedin.com/in/damla-kara-348081232/)
