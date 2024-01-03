@@ -10,7 +10,7 @@ function ApplicationSuccess() {
                 <h1 className="text-center">Teşekkürler!</h1>
                 <p className="mt-5 ">Form başarıyla gönderildi. Bize zaman ayırdığınız için teşekkür ederiz.</p>
                 <p >Başvurunuzun durumu bu kod ile takip edebilirsiniz: <span className="font-bold">{application && application.appCode}</span> </p>
-                <Link className=" text-black me-auto mt-10"  to="/basvuru-sorgula" >Başvuru Sorgulama Ekranı</Link>
+                <a className="text-black me-auto mt-10" href="/basvuru-sorgula">Başvuru Sorgulama Ekranı</a>
             </div>
         </div>
     )
