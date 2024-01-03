@@ -23,17 +23,20 @@ function UserApplicationDetails() {
                 <AppplicationInfo  />
             </div>
            <div className="border shadow-md rounded-md mx-10 p-10">
-           {
-                application.answers && application.answers.length !== 0 && (
                     <div className="text-start ">
                         <p className="font-bold text-xl mb-10">Cevaplarınız</p>
-                        {application.answers.map(answer => <div key={answer._id}>
-                            <p  className="font-semibold">{answer.user.user} <span className="text-slate-500 ms-6"> {answer.createdAt}</span> </p>
-                            <p className="ps-10" >{answer.answer}</p>
-                        </div>)}
-                    </div>
-                )
+           {
+                application.answers && application.answers.length !== 0 && 
+                        
+                            application.answers.map(answer => 
+                            <div key={answer._id}>
+                                <p  className="font-semibold">{answer.user.user} <span className="text-slate-500 ms-6"> {answer.createdAt}</span> </p>
+                                <p className="ps-10" >{answer.answer}</p>
+                            </div>)
+                        
+                
             }
+            </div>
            </div>
 
         </div>
