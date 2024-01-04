@@ -1,6 +1,9 @@
 # Fimple Bootcamp Graduation Project
 
  Deployed app link: https://fimple-graduation-project.vercel.app/
+
+ Backend code of the app is in the backend branch of this repo. You do not need to download or install the backend code to use the app, as the frontend is deployed and works with the backend code.
+ 
 ## Table of contents
 
 - [Overview](#overview)
