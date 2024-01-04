@@ -55,7 +55,7 @@ const applicationSlice = createSlice({
 
 export const createApplication = createAsyncThunk('application/createApplication', async(reqData , {rejectWithValue}) => {
     try{
-        const res = await fetch(`http://localhost:3000/application`, {
+        const res = await fetch(`https://application-app.onrender.com/application`, {
             method: "POST",
             body: reqData
         })
@@ -75,7 +75,7 @@ export const createApplication = createAsyncThunk('application/createApplication
 
 export const getAllApplications = createAsyncThunk('application/getAllAplications', async(_ , {rejectWithValue}) => {
     try{
-        const res = await fetch(`http://localhost:3000/application`, {
+        const res = await fetch(`https://application-app.onrender.com/application`, {
             method: "GET",
             headers: {
                 "Authorazition" : `Bearer ${localStorage.getItem("jwt")}`,
@@ -97,7 +97,7 @@ export const getAllApplications = createAsyncThunk('application/getAllAplication
 
 export const getApplication = createAsyncThunk('application/getAplication', async(basvuruNo , {rejectWithValue}) => {
     try{
-        const res = await fetch(`http://localhost:3000/application/${basvuruNo}`, {
+        const res = await fetch(`https://application-app.onrender.com/application/${basvuruNo}`, {
             method: "GET",
             headers: {
                 "Authorazition" : `Bearer ${localStorage.getItem("jwt")}`,
@@ -119,7 +119,7 @@ export const getApplication = createAsyncThunk('application/getAplication', asyn
 
 export const updateApplication = createAsyncThunk('application/updateAplication', async(reqData , {rejectWithValue}) => {
     try{
-        const res = await fetch(`http://localhost:3000/application/update`, {
+        const res = await fetch(`https://application-app.onrender.com/application/update`, {
             method: "POST",
             headers: {
                 "Authorazition" : `Bearer ${localStorage.getItem("jwt")}`,

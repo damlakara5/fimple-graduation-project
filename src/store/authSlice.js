@@ -30,7 +30,7 @@ const authSlice = createSlice({
 
 export const adminLogin = createAsyncThunk('auth/adminLogin' , async(reqData, {rejectWithValue}) => {
     try{
-        const res = await fetch(`http://localhost:3000/admin`, {
+        const res = await fetch(`https://application-app.onrender.com/admin`, {
             method: "POST",
             headers: {
                 "Content-type" : 'application/json'

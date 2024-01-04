@@ -14,7 +14,7 @@ function AppplicationInfo({className}) {
             <div className="flex items-center gap-3 justify-between w-1/3 mb-1"> <span className="font-semibold">Başvuru Nedeni:</span> <p>  {application.applicationReason} </p></div>
             <div className="flex items-center gap-3 justify-between w-1/3 mb-1"> <span className="font-semibold">Başvuru Tarihi:</span> <p>  {formatDate(application.createdAt)}  </p></div>
             {application.file && (
-                        <img src={`http://localhost:3000/${application.file.path}`} alt={application.file.originalname} />
+                        <img src={`https://application-app.onrender.com/${application.file.path}`} alt={application.file.originalname} />
                     )}
             <>
                 <p className="font-bold text-xl mt-20">Başvuru Durumunuz</p>
