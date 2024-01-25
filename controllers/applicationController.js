@@ -104,6 +104,13 @@ exports.getStatusDetails = async(req,res) => {
     try{
         const appCode = req.params.appCode;
         const application = await Application.findOne({appCode}).populate('statusHistory.updatedBy').populate('answers.user')
+        
+        if(!application) {
+            return res.status(404).json({
+                status: "failed",
+                message: "Couldn't find any application"
+            })
+        }
         const newArray = application.answers.map((answer, index) => {
             const statusHistoryItem = application.statusHistory[index] || {};
             return {
@@ -113,12 +120,6 @@ exports.getStatusDetails = async(req,res) => {
               updatedDate: statusHistoryItem.updatedDate
             };
           });
-        if(!application) {
-            return res.status(404).json({
-                status: "failed",
-                message: "Couldn't find any application"
-            })
-        }
         res.status(200).json({
             status: "success",
             data: newArray
