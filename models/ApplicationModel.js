@@ -42,10 +42,6 @@ const ApplicationSchema = mongoose.Schema({
     },
     statusHistory: [{
         status: String,
-        updatedBy: {
-          type: Schema.Types.ObjectId, // If you want to track who updated the status
-          ref: 'AdminUser' // Replace 'User' with your user model
-        },
         updatedDate: {
           type: Date,
           default: Date.now
@@ -53,10 +49,6 @@ const ApplicationSchema = mongoose.Schema({
       }],
       answers: [{
         answer: String,
-        user: {
-            type: Schema.Types.ObjectId,
-            ref: 'AdminUser' // Assuming you have a User model
-        },
         createdAt: {
             type: Date,
             default: Date.now

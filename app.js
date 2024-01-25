@@ -21,6 +21,7 @@ app.use(cors())
 
 app.get("/", (req,res) => {
     console.log("hello")
+    console.log(port)
 })
 
 

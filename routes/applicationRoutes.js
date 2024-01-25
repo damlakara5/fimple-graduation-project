@@ -8,8 +8,8 @@ const upload = multer({ dest: 'uploads/' }); // Configures multer to save files 
 const router = express.Router()
 
 router.route("/").post(  upload.single('file'), applicationController.createApplication)
-router.route("/").get( authController.protect, applicationController.getAllAplications)
-router.route("/:appCode").get(applicationController.getApplicationByAppCode)
-router.route("/update").post( authController.protect, applicationController.updateApplicationStatus)
+router.route("/").get( applicationController.getAllAplications)
+router.route("/:appCode").get(applicationController.getApplicationByAppCode).delete(applicationController.deleteAppByAppCode)
+router.route("/update").post( applicationController.updateApplicationStatus)
 
 module.exports = router

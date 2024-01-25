@@ -100,13 +100,42 @@ exports.getApplicationByAppCode = async(req,res) => {
         })
     }
 }
+exports.deleteAppByAppCode = async(req,res) => {
+
+    try{
+        const appCode = req.params.appCode;
+         // Attempt to delete the application with the given appCode
+        const result = await Application.deleteOne({ appCode });
+
+        // Check if an application was actually deleted
+        if (result.deletedCount === 0) {
+            return res.status(404).json({
+                status: "failed",
+                message: "Couldn't find any application with the provided code to delete"
+            });
+        }
+
+        // If an application was deleted, send a success response
+        res.status(200).json({
+            status: "success",
+            message: "Application successfully deleted"
+        });
+
+    }catch(e){
+        console.log(e)
+        res.status(400).json({
+            status: "failed",
+            message: e.message
+        })
+    }
+}
 
 exports.updateApplicationStatus = async(req,res) => {
 
     try{
         const {status, appCode, answer} = req.body
 
-        const application = await Application.findOne({appCode}).populate('statusHistory.updatedBy')
+        const application = await Application.findOne({appCode}).populate('statusHistory')
 
         if (!application) {
             return res.status(404).json({ message: 'Document not found' });
@@ -116,15 +145,15 @@ exports.updateApplicationStatus = async(req,res) => {
           if (answer) {
             const answerObj = {
                 answer: answer,
-                user: req.user._id, // Assuming req.user._id holds the ID of the user
+                //user: req.user._id, // Assuming req.user._id holds the ID of the user
                 createdAt: new Date() // Sets the current date and time
             };
             application.answers.push(answerObj);
         }
              
          
-          await application.save({ userId: req.user._id })
-         const updatedApplication = await Application.findById(application._id).populate('statusHistory.updatedBy').populate('answers.user');
+        await application.save()
+        const updatedApplication = await Application.findById(application._id).populate('statusHistory').populate('answers');
 
         res.status(200).json({
             status: "success",
