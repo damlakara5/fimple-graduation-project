@@ -103,7 +103,7 @@ exports.getStatusDetails = async(req,res) => {
 
     try{
         const appCode = req.params.appCode;
-        const application = await Application.findOne({appCode}).populate('statusHistory.updatedBy').populate('answers.user')
+        const application = await Application.findOne({appCode}).populate('statusHistory').populate('answers')
         
         if(!application) {
             return res.status(404).json({
