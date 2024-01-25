@@ -9,6 +9,7 @@ const router = express.Router()
 
 router.route("/").post(  upload.single('file'), applicationController.createApplication)
 router.route("/").get( applicationController.getAllAplications)
+router.route("/details").get( applicationController.getStatusDetails)
 router.route("/:appCode").get(applicationController.getApplicationByAppCode).delete(applicationController.deleteAppByAppCode)
 router.route("/update").post( applicationController.updateApplicationStatus)
 
