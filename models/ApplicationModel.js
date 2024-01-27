@@ -26,11 +26,7 @@ const ApplicationSchema = mongoose.Schema({
         required: [true, "Please provide address"],
         type: String,
     },
-    file: {
-      filename: String,
-      path: String,
-      originalname: String,
-  },
+    image: String,  // or { type: String }
     appCode: String,
     createdAt: {
         type: Date,

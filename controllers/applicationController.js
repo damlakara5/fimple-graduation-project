@@ -1,7 +1,18 @@
 
 const Application = require("../models/ApplicationModel")
 
+const multer = require('multer');
 
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, 'uploads/')  // 'uploads/' is the folder where images will be saved
+    },
+    filename: function (req, file, cb) {
+        cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname))
+    }
+});
+
+const upload = multer({ storage: storage });
   
 function generateAppCode() {
     const length = 6; // veya 6
@@ -20,7 +31,8 @@ function generateAppCode() {
 exports.createApplication = async(req,res) => {
 
     try{
-        const {name, lastName, age, tc, applicationReason, address, file} = req.body
+        const {name, lastName, age, tc, applicationReason, address} = req.body
+        const file = req.file;
 
         const newApplication = await Application.create({
             name,
@@ -29,6 +41,7 @@ exports.createApplication = async(req,res) => {
             tc,
             address,
             applicationReason,
+            image: file.path ,
             appCode: generateAppCode()
         })
 

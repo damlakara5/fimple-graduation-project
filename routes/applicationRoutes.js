@@ -7,7 +7,7 @@ const upload = multer({ dest: 'uploads/' }); // Configures multer to save files 
 
 const router = express.Router()
 
-router.route("/").post(  upload.single('file'), applicationController.createApplication)
+router.route("/").post(  upload.single('image'), applicationController.createApplication)
 router.route("/").get( applicationController.getAllAplications)
 router.route("/details/:appCode").get( applicationController.getStatusDetails)
 router.route("/:appCode").get(applicationController.getApplicationByAppCode).delete(applicationController.deleteAppByAppCode)
